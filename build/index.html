@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasbra</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+    <script>
+
+        window.addEventListener('scroll', function(){
+            var wScroll = this.scrollY;
+            // console.log(wScroll);
+            document.querySelector('.myclass-background').style.transform = "translate(0px," + wScroll /6 +"%)";
+            document.querySelector('.myclass-base-layer').style.transform = "translate(0px," + wScroll /6 +"%)";
+            document.querySelector('.myclass-foreground').style.transform = "translate(0px," + wScroll /3 +"%)";
+        });
+
+        function toggleClass(){
+            this.classList.toggle("selected");
+        }
+
+        function addToFeatures(){
+            rightColumn = document.querySelector('.myclass-right');
+            leftColumn = document.querySelector('.myclass-left');
+            selectedArray = [].slice.call(leftColumn.getElementsByClassName('selected'));
+            
+            for (let i = 0; i < selectedArray.length; i++) {
+                const el = selectedArray[i];
+                el.parentNode.removeChild(el);
+                rightColumn.appendChild(el);
+                el.classList.toggle('selected');
+            }
+        }
+
+        function removeFromFeatures(){
+            rightColumn = document.querySelector('.myclass-right');
+            leftColumn = document.querySelector('.myclass-left');
+            selectedArray = [].slice.call(rightColumn.getElementsByClassName('selected'));
+            
+            for (let i = 0; i < selectedArray.length; i++) {
+                const el = selectedArray[i];
+                el.parentNode.removeChild(el);
+                leftColumn.appendChild(el);
+                el.classList.toggle('selected');
+            }
+        }
+
+        function checkFields() {
+            if ((document.querySelector('input').value =="")||(document.querySelector('.myclass-right').children.length<=1)){
+                alert("Please fill all the fields");
+            } else{
+                alert("Congratulations, your feedback has been submitted!");
+            }
+        }
+
+        window.onload = function (){
+            featuresArray = document.getElementsByClassName('feature');
+            // console.log(featuresArray);
+            for (const feature of featuresArray) {
+                feature.addEventListener('click', toggleClass);
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+    <nav class="navbar has-background-black">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="./index.html">
+                  <img src="img/logo.png">
+                </a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <a class="button is-black">
+                        <span class="icon">
+                            <i class="fas fa-user"></i>
+                        </span>
+                    </a>
+                </div>
+              </div>
+        </div>
+    </nav>
+
+    <section class="myclass-parallax-box">
+        <div class="myclass-base-layer"></div>
+        <!-- <img src="img/background.png" class="myclass-fullwidth" alt=""> -->
+        <div class="myclass-background">
+        </div>
+        <div class="myclass-foreground">    
+        </div>
+    </section>
+
+    <section class="section" style="background-color: #302F33;">
+        <div class="container">
+            <h1 class="title is-1 has-text-centered" style="color: white;">Travel Note - 01</h1>
+            <p class="has-text-centered is-size-3" style="color: white;">Compose everywhere,</p>
+            <p class="has-text-centered is-size-3" style="color: white; margin-left: 20vw;">Create everytime</p>
+        </div>
+    </section>
+
+    <section class="section" style="background-color: #444247;">
+        <div class="container is-flex is-justify-content-center">
+            <img src="img/video.png" alt="">
+        </div>
+    </section>
+
+    <section class="section" style="background-color: #565259;">
+
+        <div class="container">
+
+            <h2 class="title is-1 has-text-centered mb-6" style="color: white;">Moving Music</h2>
+
+            <div class="columns is-vcentered">
+                <figure class="column is-6">
+                    <img src="img/piano2.png">
+                </figure>
+                <div class="column is-6" style= "display: flex; justify-content: center;">
+                    <div class="content" style="color: white;">
+                        <p class="is-size-4">
+                            The TN-01 is made for moving people, people who can’t wait to compose or play
+                            <br>Choose your sound among a large choice of virtual instruments
+                            <br>Create your beat with the sequencer or the drumpad three different outputs for three different ways to play, compose with the Midi output, the audio jack for yourself and the speaker for everyone
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </section>
+
+    <section class="section" style="background-color:#625E67;">
+
+        <div class="container">
+
+            <h2 class="title is-1 has-text-centered mb-6" style="color: white;">Features</h2>
+
+            <div class="columns is-centered mb-5">
+
+                <div class="column is-3 has-text-centered">
+                    <img src="icons/midi.png" width="128" height="128"> 
+                </div>
+
+                <div class="column is-3 has-text-centered">
+                    <img src="icons/pads.png" width="128" height="128">
+                </div>
+
+                <div class="column is-3 has-text-centered">
+                    <img src="icons/plume.png" width="128" height="128">
+                </div>
+
+                <div class="column is-3 has-text-centered">
+                    <img src="icons/battery.png" width="128" height="128">
+                </div>
+
+            </div>
+
+            <p class="is-size-4 has-text-centered" style="color: white;">
+                25 Mini Keys <br>
+                8 Keypads / Drumpad <br>
+                64 Keypads / Sequencer <br>
+                Midi controller <br>
+                2.5mm Jack output <br>
+                Speaker embeded <br>
+                Information screen <br>
+            </p>
+
+        </div>
+
+
+    </section>
+
+    <section class="section" style="background-color:#847E8A;">
+
+        <div class="container">
+
+            <h2 class="title is-1 has-text-centered mb-6" style="color: white;">Rank the features in your order of importance</h2>
+
+            <div class="columns is-centered mb-5">
+
+                <div class="column is-6 has-text-centered" >
+                    <p class="is-size-4" style="color: white;">
+                        Your preferences and feedback are very important for us.
+                        This will allow us to improve our products and satisfy you more in the future. <br><br>
+                        Select features in the left row then click on >> to move it in the Desired features row.
+                        The higher the feature, the more important it is for you. <br><br>
+                        To finalize, enter your mail address and submit.
+                    </p>
+
+                    <div class="column is-half is-offset-one-quarter">
+                        <input class="input is-radiusless" style="background-color:#E7E7E7; color: #919190; font-family: 'Consolas'; border: 2px solid #625E67" type="email" placeholder="Enter your email here">
+                    </div>
+                </div>
+
+
+                <div class="column is-6 features-container">
+                    <div class="features is-flex">
+                        <div class="myclass-left is-size-5">
+                            <h3 class="is-size-4 has-text-centered" style="font-weight: bold;">Features</h3>
+                            <p class="feature pl-5">On battery</p>
+                            <p class="feature pl-5">Several octaves</p>
+                            <p class="feature pl-5">Light weight</p>
+                            <p class="feature pl-5">Multiple sounds</p>
+                            <p class="feature pl-5">Multiple effects</p>
+                            <p class="feature pl-5">Sound quality</p>
+                            <p class="feature pl-5">Esthetic</p>
+                            <p class="feature pl-5">Midi controller</p>
+                        </div>
+                        <div class="myclass-right is-size-5">
+                            <h3 class="is-size-4 has-text-centered" style="font-weight: bold;">Desired features</h3>
+                        </div>
+                    </div>
+
+                    <div class="myclass-button-up" onclick="addToFeatures()">
+                        <p class="is-size-4">>></p>
+                    </div>
+
+                    <div class="myclass-button-down" onclick="removeFromFeatures()">
+                        <p class="is-size-4"><<</p>
+                    </div>
+
+                    <div class="myclass-button" onclick="checkFields()">
+                        <p class="is-size-3">Submit</p>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+
+    </section>
+
+    
+</body>
+</html>
