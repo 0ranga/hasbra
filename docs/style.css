@@ -10136,7 +10136,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 @font-face {
   font-family: "Consolas";
-  src: url("./fonts/CONSOLAB.ttf");
+  src: url("./fonts/CONSOLAB.TTF");
   font-weight: bold;
 }
 @font-face {
@@ -10147,7 +10147,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 @font-face {
   font-family: "Consolas";
-  src: url("./fonts/CONSOLA.ttf");
+  src: url("./fonts/CONSOLA.TTF");
   font-weight: normal;
 }
 body {
